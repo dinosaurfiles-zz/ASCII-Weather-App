@@ -9,6 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -31,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fetchConnect(View view){
-        String stringUrl = "https://www.google.com.ph";
+        String stringUrl = "http://api.openweathermap.org/data/2.5/weather?lat=10&lon=122&appid=de96a1cfb5bb79880ebc64418d76eaac";
         ConnectivityManager connMgr = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -59,14 +63,29 @@ public class MainActivity extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            asciiText.setText(result);
+
+            try {
+                JSONObject  jsonRootObject = new JSONObject(result);
+                JSONArray jsonArray = jsonRootObject.optJSONArray("weather");
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                String mainWeather = jsonObject.optString("main").toString();
+
+                //String name = jsonObject.optString("name").toString();
+
+                asciiText.setText(mainWeather);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(result);
         }
 
         private String downloadUrl(String myurl) throws IOException {
             InputStream is = null;
             // Only display the first 500 characters of the retrieved
             // web page content.
-            int len = 500;
+            int len = 762;
 
             try {
                 URL url = new URL(myurl);
