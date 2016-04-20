@@ -11,6 +11,7 @@
     tools:context="co.dinosaurfiles.asciiweatherapp.MainActivity">
 
     <TextView
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location: Iloilo City "
@@ -24,6 +25,7 @@
         android:textSize="20sp" />
 
     <LinearLayout
+        android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
@@ -33,8 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Cloudy"
-            android:textSize="20sp" />
+            android:text="Weather:Main"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/weather_description"
@@ -42,46 +44,45 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="8dp"
-            android:text="Scattered Clouds"
-            android:textSize="15sp" />
+            android:text="Weather:Desc"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
 
     <TextView
-        android:id="@+id/asciiartText"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:id="@+id/asciiart_Text"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:text="ASCII String HERE"
+        android:layout_marginTop="-30dp"
+        android:text="Connect to a Network or try again later"
         android:textSize="20sp" />
 
     <TextView
+        android:id="@+id/details_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Temperature: 50 0c" />
+        android:text="Temperature: DefaultºC"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
 
     <TextView
+        android:id="@+id/details_humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Precipitation: 0mm" />
+        android:text="Humidity: Default%"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
 
     <TextView
+        android:id="@+id/details_cloudinnes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chance of Rainfall: 50%" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sunrise: 7 AM" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sunset: 5 PM" />
-
+        android:text="Cloudinnes: Default%"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
