@@ -55,9 +55,8 @@ public class MainActivity extends AppCompatActivity {
         if (networkInfo != null && networkInfo.isConnected()) {
             new DownloadWebpageTask().execute(stringUrl);
         } else {
-            asciiText.setText("No Internet Connection/Error Occured. Please try again");
+            asciiText.setText("Please connect to a network with internet connection and please try again");
         }
-
     }
 
     private class DownloadWebpageTask extends AsyncTask<String, Void, String> {
@@ -114,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
             }catch (Exception ex){
                 System.out.println("Exception"+ex);
             }
-
         }
 
         private String asciiTextArt(String mainweather){
@@ -173,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
                 art = "Unkown";
             }
             return art;
-
         }
 
         private String downloadUrl(String myurl) throws IOException {
@@ -217,56 +214,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 stream.close();
                 return sb.toString();
+            }else{
+                return "Error on ReadITt";
             }
-            return "Error|ReadITt";
         }
     }
-
-
-    /*
-        String text = "<font  color=#cc0029>Erste Farbe</font> <font color=#ffcc00>zweite Farbe</font>";
-        yourtextview.setText(Html.fromHtml(text));
-
-        String cloudy = "       .  ---  .    " +System.lineSeparator()+
-                        " . -(            ).  "+System.lineSeparator()+
-                        " (____.___)___) "+System.lineSeparator();
-
-        asciiText.setText(cloudy);
-
-    String cloudy = System.lineSeparator() +
-            "       .  ---  .    " + System.lineSeparator() +
-            " . -(           ).  " + System.lineSeparator() +
-            " (____.___)___) " + System.lineSeparator() +
-            System.lineSeparator();
-
-
-    private void getDetailsThread(View view) {
-        Thread th = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    int number;
-
-                    @Override
-                    public void run() {
-
-                        TextView asciiText = (TextView) findViewById(
-                                R.id.asciiartText
-                        );
-
-                        asciiText.setText(cloudy);
-
-                    }
-                });
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        th.start();
-    }*/
 }
 

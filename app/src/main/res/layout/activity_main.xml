@@ -49,7 +49,6 @@
 
     </LinearLayout>
 
-
     <TextView
         android:gravity="center"
         android:id="@+id/asciiart_Text"
@@ -58,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="-30dp"
-        android:text="Connect to a Network or try again later"
+        android:text="Please connect to a network with internet connection and please try again"
         android:textSize="20sp" />
 
     <TextView
@@ -84,5 +83,12 @@
         android:text="Cloudinnes: Default%"
         android:textSize="20sp"
         android:layout_gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Refresh"
+        android:onClick="fetchConnect"/>
 
 </LinearLayout>
